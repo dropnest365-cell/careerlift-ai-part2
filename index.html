@@ -2291,18 +2291,16 @@ return {
 }
 })();
 </script>
-  <!-- Cookie & Local Storage Consent Banner -->
-<div id="consent-banner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:max-w-md bg-slate-900 text-white p-5 rounded-2xl shadow-2xl z-50 border border-slate-800 hidden flex-col gap-3">
-  <div class="flex items-start justify-between gap-3">
-    <div>
-      <h4 class="font-semibold text-base mb-1">Privacy & Local Storage</h4>
-      <p class="text-xs text-slate-400 leading-relaxed">
-        We use local storage and secure cookies to save your analysis history and manage authentication. Your data stays private.
-      </p>
-    </div>
+  <!-- Upgraded Modern Cookie Consent Banner -->
+<div id="consent-banner" style="position: fixed; bottom: 20px; right: 20px; max-width: 380px; background: #0f172a; color: #ffffff; padding: 20px; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2); z-index: 99999; border: 1px solid #1e293b; font-family: ui-sans-serif, system-ui, sans-serif; display: none; flex-direction: column; gap: 12px;">
+  <div>
+    <h4 style="font-weight: 600; font-size: 15px; margin: 0 0 4px 0; color: #f8fafc;">Privacy & Local Storage</h4>
+    <p style="font-size: 13px; color: #94a3b8; margin: 0; line-height: 1.5;">
+      We use local storage and secure cookies to save your analysis history and manage authentication. Your data stays private.
+    </p>
   </div>
-  <div class="flex items-center justify-end gap-2 mt-2">
-    <button id="accept-cookies" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold px-4 py-2 rounded-xl transition-colors">
+  <div style="display: flex; justify-content: flex-end; margin-top: 4px;">
+    <button id="accept-cookies" style="background: #059669; color: white; border: none; font-size: 12px; font-weight: 600; padding: 8px 16px; border-radius: 10px; cursor: pointer;">
       Accept & Continue
     </button>
   </div>
@@ -2311,16 +2309,15 @@ return {
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     if (!localStorage.getItem("cookie_consent_accepted")) {
-      document.getElementById("consent-banner").classList.remove("hidden");
-      document.getElementById("consent-banner").classList.add("flex");
+      document.getElementById("consent-banner").style.display = "flex";
     }
 
     document.getElementById("accept-cookies").addEventListener("click", function() {
       localStorage.setItem("cookie_consent_accepted", "true");
-      document.getElementById("consent-banner").classList.remove("flex");
-      document.getElementById("consent-banner").classList.add("hidden");
+      document.getElementById("consent-banner").style.display = "none";
     });
   });
+</script>
 </script>
 </body>
 </html>
